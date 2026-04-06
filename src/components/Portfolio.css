@@ -1,0 +1,354 @@
+.portfolio {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Hero — compact ── */
+.portfolio-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 22px 40px 18px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.portfolio-of {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-bottom: 6px;
+  font-style: italic;
+}
+
+.portfolio-name {
+  font-family: var(--font);
+  font-size: clamp(28px, 3.5vw, 48px);
+  font-weight: 700;
+  letter-spacing: -1px;
+  color: var(--white);
+  line-height: 1;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* ── Mosaic index grid ── */
+.index-mosaic {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 6px;
+  padding: 12px;
+  flex: 1;
+  min-height: 0;
+}
+
+/* Photography: left col wider (2fr), spans both rows — cell ~square so landscape cactus fits */
+.mosaic-photography        { grid-column: 1; grid-row: 1 / 3; }
+
+/* Creative Campaigns + Visuals: middle col */
+.mosaic-creative-campaigns { grid-column: 2; grid-row: 1; }
+.mosaic-visuals            { grid-column: 2; grid-row: 2; }
+
+/* Written Works + Playground: right col */
+.mosaic-written-works      { grid-column: 3; grid-row: 1; }
+.mosaic-playground         { grid-column: 3; grid-row: 2; }
+
+/* ── Shared card styles ── */
+.project-card {
+  position: relative;
+  width: 100%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  overflow: hidden;
+  display: block;
+  background: #0a0a0a;
+}
+
+.project-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease, filter 0.4s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.03);
+  filter: brightness(0.7);
+}
+
+.project-card-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.1) 50%);
+  transition: background 0.3s;
+}
+
+.project-card:hover .project-card-shade {
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.25) 60%);
+}
+
+.project-card-label {
+  position: absolute;
+  bottom: 28px;
+  left: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 2;
+}
+
+.project-card-title {
+  font-family: var(--font);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.project-card-year {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.55);
+  text-transform: uppercase;
+}
+
+/* ── Coming soon ── */
+.coming-soon {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.coming-soon-text {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #444;
+  font-style: italic;
+}
+
+/* ════════════════════════════════════════════
+   Inner Photo Gallery
+════════════════════════════════════════════ */
+.pg-wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.pg-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.pg-back {
+  background: none;
+  border: none;
+  color: var(--gray);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: var(--font);
+  transition: color 0.2s;
+}
+.pg-back:hover { color: var(--white); }
+
+.pg-title {
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+/* Mosaic grid — same structure as fridge photo gallery */
+.pg-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 5px;
+  padding: 16px;
+  flex: 1;
+  min-height: 0;
+  height: calc(100vh - 90px);
+}
+
+/* Left col — spans all 3 rows */
+.pg-cell:nth-child(1) { grid-column: 1; grid-row: 1 / 4; }
+/* Middle col */
+.pg-cell:nth-child(2) { grid-column: 2; grid-row: 1; }
+.pg-cell:nth-child(3) { grid-column: 2; grid-row: 2; }
+.pg-cell:nth-child(4) { grid-column: 2; grid-row: 3; }
+/* Right col — top spans 2 rows, bottom 1 */
+.pg-cell:nth-child(5) { grid-column: 3; grid-row: 1 / 3; }
+.pg-cell:nth-child(6) { grid-column: 3; grid-row: 3; }
+
+.pg-cell {
+  background: #111;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 2px;
+  transition: filter 0.2s ease;
+}
+.pg-cell:hover { filter: brightness(1.12); }
+
+.pg-cell img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── Lightbox / single photo ── */
+.pg-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+}
+
+@keyframes liftToFace {
+  0%   { transform: scale(0.35) translateY(40px); opacity: 0; filter: blur(2px); }
+  60%  { filter: blur(0); }
+  100% { transform: scale(1) translateY(0); opacity: 1; filter: blur(0); }
+}
+@keyframes dropBack {
+  0%   { transform: scale(1) translateY(0); opacity: 1; }
+  100% { transform: scale(0.35) translateY(40px); opacity: 0; }
+}
+
+.pg-single {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: min(88vw, 780px);
+}
+
+.pg-single.lift-in  { animation: liftToFace 0.4s cubic-bezier(0.22, 0.61, 0.36, 1) forwards; }
+.pg-single.lifted   { transform: scale(1); opacity: 1; }
+.pg-single.drop-back { animation: dropBack 0.35s cubic-bezier(0.55, 0.06, 0.68, 0.19) forwards; }
+
+.pg-single-back {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: var(--font);
+  transition: color 0.2s;
+}
+.pg-single-back:hover { color: #fff; }
+
+.pg-single-img {
+  width: 100%;
+  max-height: 75vh;
+  object-fit: contain;
+  display: block;
+  border-radius: 2px;
+}
+
+.pg-single-title {
+  color: #e0e0e0;
+  font-family: var(--font);
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* ── Mobile responsive ── */
+@media (max-width: 768px) {
+  /* Portfolio index mosaic: photography full-width on top, 2×2 below */
+  .index-mosaic {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 35vw auto auto;
+    padding: 8px;
+    gap: 4px;
+  }
+
+  .mosaic-photography        { grid-column: 1 / 3; grid-row: 1; }
+  .mosaic-creative-campaigns { grid-column: 1;     grid-row: 2; }
+  .mosaic-visuals            { grid-column: 2;     grid-row: 2; }
+  .mosaic-written-works      { grid-column: 1;     grid-row: 3; }
+  .mosaic-playground         { grid-column: 2;     grid-row: 3; }
+
+  .project-card-title { font-size: 14px; letter-spacing: 2px; }
+  .project-card-label { bottom: 14px; left: 16px; }
+
+  /* Inner photo gallery: 2 columns, auto rows */
+  .pg-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    height: auto;
+    padding: 8px;
+    gap: 4px;
+  }
+
+  /* Reset all spanning — images flow naturally 2-up */
+  .pg-cell:nth-child(1),
+  .pg-cell:nth-child(2),
+  .pg-cell:nth-child(3),
+  .pg-cell:nth-child(4),
+  .pg-cell:nth-child(5),
+  .pg-cell:nth-child(6) {
+    grid-column: auto;
+    grid-row: auto;
+    height: 40vw;
+  }
+
+  .pg-header { padding: 16px 20px; }
+  .pg-title  { font-size: 11px; }
+}
+
+@media (max-width: 480px) {
+  .index-mosaic {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 50vw);
+  }
+
+  .mosaic-photography        { grid-column: 1; grid-row: 1; }
+  .mosaic-creative-campaigns { grid-column: 1; grid-row: 2; }
+  .mosaic-visuals            { grid-column: 1; grid-row: 3; }
+  .mosaic-written-works      { grid-column: 1; grid-row: 4; }
+  .mosaic-playground         { grid-column: 1; grid-row: 5; }
+
+  .pg-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pg-cell:nth-child(1),
+  .pg-cell:nth-child(2),
+  .pg-cell:nth-child(3),
+  .pg-cell:nth-child(4),
+  .pg-cell:nth-child(5),
+  .pg-cell:nth-child(6) {
+    height: 70vw;
+  }
+}
