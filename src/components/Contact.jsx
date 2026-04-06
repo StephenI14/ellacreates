@@ -11,7 +11,11 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Placeholder — hook up to a form backend (Formspree, EmailJS, etc.)
+    const subject = encodeURIComponent(form.subject || 'Portfolio Inquiry')
+    const body = encodeURIComponent(
+      `From: ${form.name}\nEmail: ${form.email}\n\n${form.message}`
+    )
+    window.open(`mailto:ellacorrin@icloud.com?subject=${subject}&body=${body}`, '_self')
     setSent(true)
   }
 
@@ -29,7 +33,7 @@ export default function Contact() {
         <div className="contact-info">
           <div className="contact-info-block">
             <span className="info-label">Email</span>
-            <span className="info-value">ella@ellajohnson.com</span>
+            <span className="info-value">ellacorrin@icloud.com</span>
           </div>
           <div className="contact-info-block">
             <span className="info-label">Based in</span>
