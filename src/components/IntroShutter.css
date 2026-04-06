@@ -1,0 +1,91 @@
+/* ── Title overlay ── */
+.ish-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s ease;
+}
+
+.ish-overlay-opening,
+.ish-overlay-done {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ish-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+  animation: ishTitleIn 0.35s ease forwards;
+}
+
+@keyframes ishTitleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.ish-of {
+  font-family: var(--font);
+  font-size: 11px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #555;
+  font-style: italic;
+}
+
+.ish-name {
+  font-family: var(--font);
+  font-size: clamp(40px, 8vw, 100px);
+  font-weight: 700;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+  color: #fff;
+  line-height: 1;
+  margin: 0;
+}
+
+/* ── SVG Iris ── */
+.ish-iris {
+  position: fixed;
+  inset: 0;
+  z-index: 1001;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+/* Fade out the whole iris cleanly when done */
+.ish-iris-done {
+  opacity: 0;
+}
+
+.ish-ring {
+  opacity: 0.3;
+}
+
+/* Blades — leaf/petal shapes */
+.ish-blade {
+  fill: #000;
+  stroke: #fff;
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+  transform: rotate(0deg);
+  transition: transform 1.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* Opening: all blades rotate in same direction around their own pivot */
+.ish-iris-opening .ish-blade,
+.ish-iris-done .ish-blade {
+  transform: rotate(-65deg);
+}
+
+@media (max-width: 480px) {
+  .ish-name { letter-spacing: -1px; }
+}

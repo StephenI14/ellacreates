@@ -1,0 +1,151 @@
+/* ── Overlay ── */
+.iw-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s ease;
+}
+
+.iw-overlay-weave-in { opacity: 0; }
+.iw-overlay-weave-out { opacity: 0; pointer-events: none; }
+
+.iw-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+  animation: iwTitleIn 0.35s ease forwards;
+}
+
+@keyframes iwTitleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.iw-of {
+  font-family: var(--font);
+  font-size: 11px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #555;
+  font-style: italic;
+}
+
+.iw-name {
+  font-family: var(--font);
+  font-size: clamp(40px, 8vw, 100px);
+  font-weight: 700;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+  color: #fff;
+  line-height: 1;
+  margin: 0;
+}
+
+/* ── Strips ── */
+.iw-strips {
+  position: fixed;
+  inset: 0;
+  z-index: 1001;
+  pointer-events: none;
+}
+
+.iw-strip {
+  position: absolute;
+  background: #000;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Horizontal strips (from left/right) */
+.iw-strip-left,
+.iw-strip-right {
+  height: 25%;
+  width: 110%;
+}
+
+.iw-strip-left  { left: -110%; }
+.iw-strip-right { right: -110%; }
+
+.iw-strip-1 { top: 0%; }
+.iw-strip-2 { top: 25%; }
+.iw-strip-3 { top: 50%; }
+.iw-strip-4 { top: 75%; }
+.iw-strip-5 { top: 12.5%; }
+.iw-strip-6 { top: 37.5%; }
+.iw-strip-7 { top: 62.5%; }
+.iw-strip-8 { top: 87.5%; }
+
+/* Vertical strips (from top/bottom) */
+.iw-strip-top,
+.iw-strip-bottom {
+  width: 33.4%;
+  height: 110%;
+}
+
+.iw-strip-top    { top: -110%; }
+.iw-strip-bottom { bottom: -110%; }
+
+.iw-strip-9  { left: 0%; }
+.iw-strip-10 { left: 33.3%; }
+.iw-strip-11 { left: 66.6%; }
+.iw-strip-12 { left: 16.6%; }
+.iw-strip-13 { left: 50%; }
+.iw-strip-14 { left: 83.3%; }
+
+/* ── Weave IN: strips slide to cover the screen ── */
+.iw-strips-weave-in .iw-strip-left  { left: 0;    transition: left 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
+.iw-strips-weave-in .iw-strip-right { right: 0;   transition: right 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
+.iw-strips-weave-in .iw-strip-top   { top: 0;     transition: top 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
+.iw-strips-weave-in .iw-strip-bottom { bottom: 0; transition: bottom 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
+
+/* Stagger the strips */
+.iw-strips-weave-in .iw-strip-1  { transition-delay: 0s; }
+.iw-strips-weave-in .iw-strip-5  { transition-delay: 0.04s; }
+.iw-strips-weave-in .iw-strip-9  { transition-delay: 0.08s; }
+.iw-strips-weave-in .iw-strip-2  { transition-delay: 0.06s; }
+.iw-strips-weave-in .iw-strip-12 { transition-delay: 0.1s; }
+.iw-strips-weave-in .iw-strip-6  { transition-delay: 0.08s; }
+.iw-strips-weave-in .iw-strip-10 { transition-delay: 0.12s; }
+.iw-strips-weave-in .iw-strip-3  { transition-delay: 0.1s; }
+.iw-strips-weave-in .iw-strip-13 { transition-delay: 0.14s; }
+.iw-strips-weave-in .iw-strip-7  { transition-delay: 0.12s; }
+.iw-strips-weave-in .iw-strip-11 { transition-delay: 0.16s; }
+.iw-strips-weave-in .iw-strip-4  { transition-delay: 0.14s; }
+.iw-strips-weave-in .iw-strip-14 { transition-delay: 0.18s; }
+.iw-strips-weave-in .iw-strip-8  { transition-delay: 0.16s; }
+
+/* ── Weave OUT: strips slide away in opposite directions ── */
+.iw-strips-weave-out .iw-strip-left  { left: 0;  transition: left 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+.iw-strips-weave-out .iw-strip-right { right: 0; transition: right 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+.iw-strips-weave-out .iw-strip-top   { top: 0;   transition: top 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+.iw-strips-weave-out .iw-strip-bottom { bottom: 0; transition: bottom 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+
+/* Now slide them out the opposite side */
+.iw-strips-weave-out .iw-strip-left  { left: 110% !important;  }
+.iw-strips-weave-out .iw-strip-right { right: 110% !important; }
+.iw-strips-weave-out .iw-strip-top   { top: 110% !important;   }
+.iw-strips-weave-out .iw-strip-bottom { bottom: 110% !important; }
+
+.iw-strips-weave-out .iw-strip-1  { transition-delay: 0s; }
+.iw-strips-weave-out .iw-strip-5  { transition-delay: 0.03s; }
+.iw-strips-weave-out .iw-strip-9  { transition-delay: 0.06s; }
+.iw-strips-weave-out .iw-strip-2  { transition-delay: 0.05s; }
+.iw-strips-weave-out .iw-strip-12 { transition-delay: 0.08s; }
+.iw-strips-weave-out .iw-strip-6  { transition-delay: 0.06s; }
+.iw-strips-weave-out .iw-strip-10 { transition-delay: 0.1s; }
+.iw-strips-weave-out .iw-strip-3  { transition-delay: 0.08s; }
+.iw-strips-weave-out .iw-strip-13 { transition-delay: 0.12s; }
+.iw-strips-weave-out .iw-strip-7  { transition-delay: 0.1s; }
+.iw-strips-weave-out .iw-strip-11 { transition-delay: 0.14s; }
+.iw-strips-weave-out .iw-strip-4  { transition-delay: 0.12s; }
+.iw-strips-weave-out .iw-strip-14 { transition-delay: 0.16s; }
+.iw-strips-weave-out .iw-strip-8  { transition-delay: 0.14s; }
+
+@media (max-width: 480px) {
+  .iw-name { letter-spacing: -1px; }
+}

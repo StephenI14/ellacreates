@@ -1,12 +1,18 @@
 import { useState } from 'react'
 import './CampaignsGallery.css'
+import ZoomableImage from './ZoomableImage'
 
 const photos = [
-  { id: 1, src: '/photos/event.jpg',     title: 'Event' },
-  { id: 2, src: '/photos/flier.jpg',     title: 'Flier' },
-  { id: 3, src: '/photos/geo.jpg',       title: 'Geo' },
-  { id: 4, src: '/photos/marketing.jpg', title: 'Marketing' },
-  { id: 5, src: '/photos/upcycle.jpg',   title: 'Upcycle' },
+  { id: 1,  src: '/photos/event.jpg',     title: "International Women's Day Event Flier" },
+  { id: 2,  src: '/photos/flier.jpg',     title: 'Product Marketing Materials' },
+  { id: 3,  src: '/photos/geo.jpg',       title: 'Geocaching Allaire Instagram Post' },
+  { id: 4,  src: '/photos/marketing.jpg', title: 'Noyes Promotional Advertisement Post' },
+  { id: 5,  src: '/photos/upcycle.jpg',   title: 'Upcycle & Unwind Event Flier' },
+  { id: 6,  src: '/photos/fright.jpg',    title: 'Fright Fest Marketing Materials' },
+  { id: 7,  src: '/photos/supplies.jpg',  title: 'Bag Charm Workshop Event Flier' },
+  { id: 8,  src: '/photos/queens.jpg',    title: 'Geocaching New York Trip Post' },
+  { id: 9,  src: '/photos/flow.jpg',      title: 'Letter to My Future Self Event Flier' },
+  { id: 10, src: '/photos/ra.jpg',        title: 'Mini Bouquets Event Flier' },
 ]
 
 export default function CampaignsGallery({ onBack }) {
@@ -49,7 +55,7 @@ export default function CampaignsGallery({ onBack }) {
             onClick={(e) => e.stopPropagation()}
           >
             <button className="cg-single-back" onClick={closePhoto}>← back</button>
-            <img className="cg-single-img" src={selected.src} alt={selected.title} />
+            <ZoomableImage className="cg-single-img" src={selected.src} alt={selected.title} />
             <div className="cg-single-title">{selected.title}</div>
           </div>
         </div>

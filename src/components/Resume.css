@@ -1,0 +1,53 @@
+.resume {
+  height: 100%;
+  overflow: hidden;
+}
+
+.resume-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--border);
+}
+
+.resume-title {
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--white);
+  margin: 0;
+}
+
+.resume-download {
+  font-family: var(--font);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gray);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.resume-download:hover {
+  color: var(--white);
+}
+
+.resume-iframe {
+  display: block;
+  width: 100%;
+  height: calc(100vh - 73px);
+  border: none;
+  background: #111;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .resume-header {
+    padding: 16px 20px;
+  }
+  .resume-title {
+    font-size: 11px;
+  }
+}

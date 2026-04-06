@@ -2,7 +2,11 @@
   display: flex;
   height: 100vh;
   overflow: hidden;
+  transition: opacity 1.7s ease;
 }
+
+.app-hidden  { opacity: 0; }
+.app-visible { opacity: 1; }
 
 /* ── Sidebar ── */
 .sidebar {
@@ -70,6 +74,10 @@
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
+}
+
+.main-content.no-scroll {
+  overflow: hidden;
 }
 
 .main-content::-webkit-scrollbar {

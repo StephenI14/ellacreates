@@ -1,22 +1,25 @@
 import { useState } from 'react'
 import './CreativeCampaignsGallery.css'
+import ZoomableImage from './ZoomableImage'
 
 const photos = [
-  { id: 1,  src: '/photos/scanned_page4.jpg',    title: 'Untitled I' },
-  { id: 2,  src: '/photos/scanned_doc_p1.jpg',   title: 'Untitled II' },
-  { id: 3,  src: '/photos/scanned_doc_p2.jpg',   title: 'Untitled III' },
-  { id: 4,  src: '/photos/scanned_doc_p3.jpg',   title: 'Untitled IV' },
-  { id: 5,  src: '/photos/scanned_doc_p4.jpg',   title: 'Untitled V' },
-  { id: 6,  src: '/photos/scanned_doc_p5.jpg',   title: 'Untitled VI' },
-  { id: 7,  src: '/photos/scanned_doc2_p7.jpg',  title: 'Untitled VII' },
-  { id: 8,  src: '/photos/scanned_doc2_p11.jpg', title: 'Untitled VIII' },
-  { id: 9,  src: '/photos/scanned_doc2_p13.jpg', title: 'Untitled IX' },
-  { id: 10, src: '/photos/scanned_doc2_p14.jpg', title: 'Untitled X' },
-  { id: 11, src: '/photos/scanned_doc2_p15.jpg', title: 'Untitled XI' },
-  { id: 12, src: '/photos/scanned_doc2_p16.jpg', title: 'Untitled XII' },
-  { id: 13, src: '/photos/scanned_doc2_p17.jpg', title: 'Untitled XIII' },
-  { id: 14, src: '/photos/scanned_doc2_p18.jpg', title: 'Untitled XIV' },
-  { id: 15, src: '/photos/blueberries.jpg',      title: 'Blueberries' },
+  { id: 1,  src: '/photos/scanned_page4.jpg',    title: 'Watercolor of Flower' },
+  { id: 2,  src: '/photos/scanned_doc_p1.jpg',   title: 'Acrylic Gem Painting' },
+  { id: 3,  src: '/photos/scanned_doc_p2.jpg',   title: 'Lighthouse Photo Weave' },
+  { id: 4,  src: '/photos/scanned_doc_p3.jpg',   title: 'Watercolor Tree' },
+  { id: 5,  src: '/photos/scanned_doc_p4.jpg',   title: 'Home is a Rainbow Weave' },
+  { id: 6,  src: '/photos/scanned_doc_p5.jpg',   title: 'Landscape Photo Weave' },
+  { id: 7,  src: '/photos/scanned_doc2_p7.jpg',  title: 'Acrylic Gothic Carving' },
+  { id: 8,  src: '/photos/scanned_doc2_p11.jpg', title: 'Acid Etch Sauron' },
+  { id: 9,  src: '/photos/scanned_doc2_p13.jpg', title: 'Bowling Linocut Practice' },
+  { id: 10, src: '/photos/scanned_doc2_p14.jpg', title: 'Leaf Collagraphy Black & White' },
+  { id: 11, src: '/photos/scanned_doc2_p15.jpg', title: 'Leaf Collagraphy Green' },
+  { id: 12, src: '/photos/scanned_doc2_p16.jpg', title: 'Bowling Linocut Print' },
+  { id: 13, src: '/photos/scanned_doc2_p17.jpg', title: 'Radiohead Linocut Prints' },
+  { id: 14, src: '/photos/scanned_doc2_p18.jpg', title: 'Red Haku Linocut Print' },
+  { id: 15, src: '/photos/blueberries.jpg',      title: 'Groovy Watercolor Blueberries' },
+  { id: 16, src: '/photos/bug.jpg',              title: 'ASCII Bee' },
+  { id: 17, src: '/photos/weave.png',            title: 'Balance Collage Weave' },
 ]
 
 export default function CreativeCampaignsGallery({ onBack }) {
@@ -59,7 +62,7 @@ export default function CreativeCampaignsGallery({ onBack }) {
             onClick={(e) => e.stopPropagation()}
           >
             <button className="cc-single-back" onClick={closePhoto}>← back</button>
-            <img className="cc-single-img" src={selected.src} alt={selected.title} />
+            <ZoomableImage className="cc-single-img" src={selected.src} alt={selected.title} />
             <div className="cc-single-title">{selected.title}</div>
           </div>
         </div>

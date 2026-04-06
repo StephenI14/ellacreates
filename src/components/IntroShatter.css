@@ -1,0 +1,95 @@
+/* ── Solid overlay (title phase only) ── */
+.is-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Shared title styles ── */
+.is-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+}
+
+.is-of {
+  font-family: var(--font);
+  font-size: 11px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #555;
+  font-style: italic;
+}
+
+.is-name {
+  font-family: var(--font);
+  font-size: clamp(40px, 8vw, 100px);
+  font-weight: 700;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+  color: #fff;
+  line-height: 1;
+  margin: 0;
+}
+
+/* ── Tiles container ── */
+.is-tiles {
+  position: fixed;
+  inset: 0;
+  z-index: 1001;
+  pointer-events: none;
+}
+
+.is-tile {
+  position: absolute;
+  overflow: hidden;
+  background: #000;
+}
+
+.is-tile-content {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Crack phase — tiles separate slightly with a gap between them */
+.is-tile-crack {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  animation: tileShake 0.3s ease-in-out;
+}
+
+@keyframes tileShake {
+  0%, 100% { transform: translate(0, 0); }
+  25%      { transform: translate(-2px, 1px); }
+  50%      { transform: translate(2px, -1px); }
+  75%      { transform: translate(-1px, -2px); }
+}
+
+/* Shatter phase — tiles fall outward and down with staggered delay */
+.is-tile-fall {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: tileFall 1.4s cubic-bezier(0.4, 0, 1, 1) forwards;
+  animation-delay: var(--delay);
+}
+
+@keyframes tileFall {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--dx), var(--dy)) rotate(var(--rot));
+    opacity: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .is-name { letter-spacing: -1px; }
+}

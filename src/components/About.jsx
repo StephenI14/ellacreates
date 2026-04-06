@@ -64,7 +64,7 @@ export default function About() {
 
       {/* Second image section */}
       <div className="about-feature">
-        <img src="/photos/boyce_thompson.jpg" alt="Portfolio sample" />
+        <img src="/photos/baby.jpg" alt="Portfolio sample" />
         <div className="about-feature-caption">
           <span className="about-label">Process</span>
           <p>

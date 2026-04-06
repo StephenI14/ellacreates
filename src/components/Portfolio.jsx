@@ -1,16 +1,20 @@
 import { useState } from 'react'
 import './Portfolio.css'
+import ZoomableImage from './ZoomableImage'
 import CreativeCampaignsGallery from './CreativeCampaignsGallery'
 import CampaignsGallery from './CampaignsGallery'
+import VisualsGallery from './VisualsGallery'
+import WrittenWorksGallery from './WrittenWorksGallery'
 
 // ── Photography inner gallery photos ──
 const photographyPhotos = [
-  { id: 1, title: 'Boyce Thompson',   src: '/photos/boyce_thompson.jpg',   description: 'Arboretum trails and desert flora.' },
-  { id: 2, title: 'Steps',            src: '/photos/steps.jpg',            description: 'Geometry and shadow in the city.' },
-  { id: 3, title: 'Desert Botanical', src: '/photos/desert_botanical.jpg', description: 'Cacti and blooms at the Desert Botanical Garden.' },
-  { id: 4, title: 'Rodeo',            src: '/photos/rodeo.jpg',            description: 'Dust, lights, and the electric energy of the rodeo.' },
-  { id: 5, title: 'Arcosanti',        src: '/photos/arcosanti.jpg',        description: "Paolo Soleri's experimental town in the Arizona desert." },
-  { id: 6, title: 'Poetry',           src: '/photos/poetry.jpg',           description: 'Quiet moments and found objects.' },
+  { id: 1, title: 'Boyce Thompson Landscape',   src: '/photos/boyce_thompson.jpg',   description: 'Arboretum trails and desert flora.' },
+  { id: 2, title: 'Paris Pidgeon Landscape',   src: '/photos/steps.jpg',            description: 'Geometry and shadow in the city.' },
+  { id: 3, title: 'Desert Botanical',          src: '/photos/desert_botanical.jpg', description: 'Cacti and blooms at the Desert Botanical Garden.' },
+  { id: 4, title: 'Phoenix Rodeo',             src: '/photos/rodeo.jpg',            description: 'Dust, lights, and the electric energy of the rodeo.' },
+  { id: 5, title: 'Arcosanti',                 src: '/photos/arcosanti.jpg',        description: "Paolo Soleri's experimental town in the Arizona desert." },
+  { id: 6, title: 'Poetry Out Loud Event Photo', src: '/photos/poetry.jpg',         description: 'Quiet moments and found objects.' },
+  { id: 7, title: 'Self Portrait',             src: '/photos/selfportrait.jpg',     description: 'A reflection.' },
 ]
 
 // ── Top-level project cards ──
@@ -60,12 +64,15 @@ function PhotoGallery({ onBack }) {
         <h2 className="pg-title">Photography</h2>
       </div>
 
-      <div className="pg-grid">
-        {photographyPhotos.map((p) => (
-          <button key={p.id} className="pg-cell" onClick={() => openPhoto(p)}>
-            <img src={p.src} alt={p.title} />
-          </button>
-        ))}
+      <div className="pg-scroll">
+        <div className="pg-grid">
+          {photographyPhotos.map((p) => (
+            <button key={p.id} className="pg-cell" onClick={() => openPhoto(p)}>
+              <img src={p.src} alt={p.title} />
+              <div className="pg-cell-shade" />
+            </button>
+          ))}
+        </div>
       </div>
 
       {selected && (
@@ -75,7 +82,7 @@ function PhotoGallery({ onBack }) {
             onClick={(e) => e.stopPropagation()}
           >
             <button className="pg-single-back" onClick={closePhoto}>← back</button>
-            <img className="pg-single-img" src={selected.src} alt={selected.title} />
+            <ZoomableImage className="pg-single-img" src={selected.src} alt={selected.title} />
             <div className="pg-single-title">{selected.title}</div>
           </div>
         </div>
@@ -91,8 +98,8 @@ export default function Portfolio() {
 
   if (openProject === 'photography')        return <PhotoGallery onBack={goBack} />
   if (openProject === 'creative-campaigns') return <CampaignsGallery onBack={goBack} />
-  if (openProject === 'visuals')            return <ComingSoon title="Visuals" onBack={goBack} />
-  if (openProject === 'written-works')      return <ComingSoon title="Written Works" onBack={goBack} />
+  if (openProject === 'visuals')            return <VisualsGallery onBack={goBack} />
+  if (openProject === 'written-works')      return <WrittenWorksGallery onBack={goBack} />
   if (openProject === 'playground')         return <CreativeCampaignsGallery onBack={goBack} />
 
   return (

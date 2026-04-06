@@ -176,45 +176,56 @@
   color: var(--white);
 }
 
-/* Mosaic grid — same structure as fridge photo gallery */
-.pg-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: repeat(3, 1fr);
-  gap: 5px;
-  padding: 16px;
+/* Scrollable container */
+.pg-scroll {
   flex: 1;
+  overflow-y: auto;
   min-height: 0;
-  height: calc(100vh - 90px);
 }
 
-/* Left col — spans all 3 rows */
-.pg-cell:nth-child(1) { grid-column: 1; grid-row: 1 / 4; }
-/* Middle col */
-.pg-cell:nth-child(2) { grid-column: 2; grid-row: 1; }
-.pg-cell:nth-child(3) { grid-column: 2; grid-row: 2; }
-.pg-cell:nth-child(4) { grid-column: 2; grid-row: 3; }
-/* Right col — top spans 2 rows, bottom 1 */
-.pg-cell:nth-child(5) { grid-column: 3; grid-row: 1 / 3; }
-.pg-cell:nth-child(6) { grid-column: 3; grid-row: 3; }
+.pg-scroll::-webkit-scrollbar { width: 4px; }
+.pg-scroll::-webkit-scrollbar-track { background: transparent; }
+.pg-scroll::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+
+/* Masonry columns */
+.pg-grid {
+  columns: 3;
+  column-gap: 5px;
+  padding: 16px;
+}
 
 .pg-cell {
-  background: #111;
+  display: block;
+  break-inside: avoid;
+  margin-bottom: 5px;
+  position: relative;
+  background: #0a0a0a;
   border: none;
   padding: 0;
   cursor: pointer;
   overflow: hidden;
+  width: 100%;
   border-radius: 2px;
-  transition: filter 0.2s ease;
 }
-.pg-cell:hover { filter: brightness(1.12); }
 
 .pg-cell img {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  transition: transform 0.5s ease;
 }
+
+.pg-cell:hover img { transform: scale(1.04); }
+
+.pg-cell-shade {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.15);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+.pg-cell:hover .pg-cell-shade { opacity: 1; }
 
 /* ── Lightbox / single photo ── */
 .pg-lightbox {
@@ -302,29 +313,10 @@
   .project-card-title { font-size: 14px; letter-spacing: 2px; }
   .project-card-label { bottom: 14px; left: 16px; }
 
-  /* Inner photo gallery: 2 columns, auto rows */
-  .pg-grid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-    height: auto;
-    padding: 8px;
-    gap: 4px;
-  }
-
-  /* Reset all spanning — images flow naturally 2-up */
-  .pg-cell:nth-child(1),
-  .pg-cell:nth-child(2),
-  .pg-cell:nth-child(3),
-  .pg-cell:nth-child(4),
-  .pg-cell:nth-child(5),
-  .pg-cell:nth-child(6) {
-    grid-column: auto;
-    grid-row: auto;
-    height: 40vw;
-  }
-
   .pg-header { padding: 16px 20px; }
   .pg-title  { font-size: 11px; }
+  .pg-grid   { columns: 2; padding: 8px; column-gap: 4px; }
+  .pg-cell   { margin-bottom: 4px; }
 }
 
 @media (max-width: 480px) {
@@ -339,16 +331,5 @@
   .mosaic-written-works      { grid-column: 1; grid-row: 4; }
   .mosaic-playground         { grid-column: 1; grid-row: 5; }
 
-  .pg-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .pg-cell:nth-child(1),
-  .pg-cell:nth-child(2),
-  .pg-cell:nth-child(3),
-  .pg-cell:nth-child(4),
-  .pg-cell:nth-child(5),
-  .pg-cell:nth-child(6) {
-    height: 70vw;
-  }
+  .pg-grid { columns: 1; }
 }
