@@ -12,9 +12,9 @@ export default function About() {
           <span className="about-label">About</span>
           <h2 className="about-heading">Ella Johnson</h2>
           <p className="about-bio">
-            Photographer and creative based in Arizona. I make pictures of the
-            world as I find it — desert landscapes, quiet architecture, and the
-            small moments between.
+            Aspiring brand strategist based in New Jersey with a background in
+            PR, communications, and creative direction. I bring ideas to life
+            through thoughtful storytelling and visual design.
           </p>
           <p className="about-bio">
             My work lives at the intersection of observation and feeling.

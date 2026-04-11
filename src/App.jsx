@@ -29,7 +29,7 @@ export default function App() {
       <aside className="sidebar">
         <div>
           <div className="sidebar-name">Ella Johnson</div>
-          <div className="sidebar-tagline">photographer &amp; creative</div>
+          <div className="sidebar-tagline">Aspiring Brand Strategist | PR &amp; Communications</div>
         </div>
 
         <nav className="sidebar-nav">
