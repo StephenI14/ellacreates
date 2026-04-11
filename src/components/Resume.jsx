@@ -10,7 +10,7 @@ export default function Resume() {
         </a>
       </div>
       <iframe
-        src="/resume.pdf"
+        src="/resume.pdf#toolbar=0"
         title="Resume"
         className="resume-iframe"
       />

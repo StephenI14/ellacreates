@@ -25,7 +25,7 @@ export default function Contact() {
         <span className="contact-label">Contact</span>
         <h2 className="contact-heading">Get in touch</h2>
         <p className="contact-sub">
-          Available for commissions, collaborations, and print inquiries.
+          Available for commissions, collaborations, and inquiries.
         </p>
       </div>
 
@@ -37,15 +37,11 @@ export default function Contact() {
           </div>
           <div className="contact-info-block">
             <span className="info-label">Based in</span>
-            <span className="info-value">Arizona, USA</span>
+            <span className="info-value">New Jersey, USA</span>
           </div>
           <div className="contact-info-block">
             <span className="info-label">Instagram</span>
-            <span className="info-value">@ellajohnson</span>
-          </div>
-          <div className="contact-info-block">
-            <span className="info-label">Response time</span>
-            <span className="info-value">Within 48 hours</span>
+            <span className="info-value">@xxellajohnson / @xxellacreates</span>
           </div>
         </div>
 
