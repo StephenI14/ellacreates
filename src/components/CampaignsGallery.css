@@ -79,7 +79,7 @@
 .cg-cell-shade {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.45);
+  background: rgba(0,0,0,0.6);
   opacity: 0;
   transition: opacity 0.3s;
   pointer-events: none;
@@ -96,7 +96,7 @@
   padding: 12px;
   color: var(--white);
   font-family: var(--font);
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
