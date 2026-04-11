@@ -35,6 +35,7 @@ export default function VisualsGallery({ onBack }) {
             <button key={p.id} className={`vg-cell vg-cell-${p.id}`} onClick={() => openPhoto(p)}>
               <img src={p.src} alt={p.title} />
               <div className="vg-cell-shade" />
+              <span className="vg-cell-title">{p.title}</span>
             </button>
           ))}
         </div>

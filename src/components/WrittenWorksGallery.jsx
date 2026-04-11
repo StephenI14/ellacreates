@@ -36,6 +36,7 @@ export default function WrittenWorksGallery({ onBack }) {
             <button key={p.id} className={`ww-cell ww-cell-${p.id}`} onClick={() => openPhoto(p)}>
               <img src={p.src} alt={p.title} />
               <div className="ww-cell-shade" />
+              <span className="ww-cell-title">{p.title}</span>
             </button>
           ))}
         </div>

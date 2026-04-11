@@ -70,6 +70,7 @@ function PhotoGallery({ onBack }) {
             <button key={p.id} className="pg-cell" onClick={() => openPhoto(p)}>
               <img src={p.src} alt={p.title} />
               <div className="pg-cell-shade" />
+              <span className="pg-cell-title">{p.title}</span>
             </button>
           ))}
         </div>

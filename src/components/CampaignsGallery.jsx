@@ -43,6 +43,7 @@ export default function CampaignsGallery({ onBack }) {
             <button key={p.id} className={`cg-cell cg-cell-${p.id}`} onClick={() => openPhoto(p)}>
               <img src={p.src} alt={p.title} />
               <div className="cg-cell-shade" />
+              <span className="cg-cell-title">{p.title}</span>
             </button>
           ))}
         </div>
