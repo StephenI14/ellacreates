@@ -12,13 +12,17 @@ export default function About() {
           <span className="about-label">About</span>
           <h2 className="about-heading">Ella Johnson</h2>
           <p className="about-bio">
-            Aspiring brand strategist based in New Jersey with a background in
-            PR, communications, and creative direction. I bring ideas to life
-            through thoughtful storytelling and visual design.
+            I'm an aspiring brand strategist based in New Jersey with a passion
+            for public relations, strategic communications, and creative
+            storytelling. With experience in university relations, event
+            marketing, and digital content creation, I transform ideas into
+            meaningful brand experiences.
           </p>
           <p className="about-bio">
-            My work lives at the intersection of observation and feeling.
-            I'm drawn to stillness, texture, and light that tells the truth.
+            My work spans campaign development, promotional design, press
+            writing, visual media, and experimental art. Everything I create is
+            guided by a commitment to authentic connection and purposeful
+            creativity.
           </p>
         </div>
       </div>
