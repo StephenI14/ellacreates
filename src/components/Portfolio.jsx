@@ -22,6 +22,7 @@ const photographyPhotos = [
   { id: 12, title: 'Oregon Coast', src: '/photos/ocean.jpeg', description: '' },
   { id: 13, title: 'Salt River', src: '/photos/salt.jpeg', description: '' },
   { id: 14, title: 'Mirror', src: '/photos/mirror.jpeg', description: '' },
+  { id: 15, title: 'Poetry Event Picture', src: '/photos/po.jpg', description: '' },
 ]
 
 // ── Top-level project cards ──
