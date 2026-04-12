@@ -9,6 +9,7 @@ const photos = [
   { id: 4,  src: '/photos/marketing.jpg', title: 'Noyes Promotional Advertisement Post' },
   { id: 5,  src: '/photos/upcycle.jpg',   title: 'Upcycle & Unwind Event Flier' },
   { id: 6,  src: '/photos/fright.jpg',    title: 'Fright Fest Marketing Materials' },
+  { id: 18, src: '/photos/fri.jpg',      title: 'Fright Fest Marketing Materials (2)' },
   { id: 7,  src: '/photos/supplies.jpg',  title: 'Bag Charm Workshop Event Flier' },
   { id: 8,  src: '/photos/queens.jpg',    title: 'Geocaching New York Trip Post' },
   { id: 9,  src: '/photos/flow.jpg',      title: 'Letter to My Future Self Event Flier' },
