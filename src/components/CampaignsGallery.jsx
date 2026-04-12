@@ -20,7 +20,7 @@ const photos = [
   { id: 12, title: 'Tawny Reynolds Post', src: '/photos/tawny_insta.png', link: 'https://www.instagram.com/p/DNsvlwJZgZc/?img_index=1' },
   { id: 13, title: 'Jorge Artist Post', src: '/photos/jorge.png', link: 'https://www.instagram.com/p/DLqGv3FvMfi/?img_index=1' },
   { id: 14, title: 'Annaliese Artist Post', src: '/photos/anna.png', link: 'https://www.instagram.com/p/DJeQFtYRQRm/' },
-  { id: 15, title: 'Art of Recovery Event Posting', link: 'https://www.instagram.com/p/DIJrp8azQPo/' },
+  { id: 15, title: 'Art of Recovery Event Posting', src: '/photos/artRec.png', link: 'https://www.instagram.com/p/DIJrp8azQPo/' },
   { id: 17, src: '/photos/geopost.jpeg', title: 'Cape May Post' },
 ]
 
