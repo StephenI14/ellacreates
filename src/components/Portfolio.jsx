@@ -15,6 +15,7 @@ const photographyPhotos = [
   { id: 5, title: 'Arcosanti',                 src: '/photos/arcosanti.jpg',        description: "Paolo Soleri's experimental town in the Arizona desert." },
   { id: 6, title: 'Poetry Out Loud Event Photo', src: '/photos/poetry.jpg',         description: 'Quiet moments and found objects.' },
   { id: 7, title: 'Self Portrait',             src: '/photos/selfportrait.jpg',     description: 'A reflection.' },
+  { id: 8, title: 'SatARTdays',                src: '/photos/photosat.jpeg',        description: '' },
 ]
 
 // ── Top-level project cards ──
