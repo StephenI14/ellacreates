@@ -14,6 +14,9 @@ const photos = [
   { id: 9,  src: '/photos/flow.jpg',      title: 'Letter to My Future Self Event Flier' },
   { id: 10, src: '/photos/ra.jpg',        title: 'Mini Bouquets Event Flier' },
   { id: 11, title: 'Ducktown Reel', link: 'https://www.instagram.com/p/DBMoaVky32W/' },
+  { id: 12, title: 'Tawny Reynolds Post', link: 'https://www.instagram.com/p/DNsvlwJZgZc/?img_index=1' },
+  { id: 13, title: 'Jorge Artist Post', link: 'https://www.instagram.com/p/DLqGv3FvMfi/?img_index=1' },
+  { id: 14, title: 'Annaliese Artist Post', link: 'https://www.instagram.com/p/DJeQFtYRQRm/' },
 ]
 
 export default function CampaignsGallery({ onBack }) {
