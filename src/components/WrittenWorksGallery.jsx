@@ -6,6 +6,7 @@ const photos = [
   { id: 1, src: '/photos/box.jpg',     title: 'Senior Seminar Poem: The Little Box' },
   { id: 2, src: '/photos/article.jpg', title: 'University Relations & Marketing Ghana Article' },
   { id: 3, src: '/photos/noyes.png',   title: 'Noyes Art Garage Press Release' },
+  { id: 4, src: '/photos/babyd.png',  title: 'Baby Day Article', link: 'https://stockton.edu/news/2026/baby-day.html' },
 ]
 
 export default function WrittenWorksGallery({ onBack }) {
@@ -32,13 +33,21 @@ export default function WrittenWorksGallery({ onBack }) {
 
       <div className="ww-scroll">
         <div className="ww-grid">
-          {photos.map((p) => (
-            <button key={p.id} className={`ww-cell ww-cell-${p.id}`} onClick={() => openPhoto(p)}>
-              <img src={p.src} alt={p.title} />
-              <div className="ww-cell-shade" />
-              <span className="ww-cell-title">{p.title}</span>
-            </button>
-          ))}
+          {photos.map((p) =>
+            p.link ? (
+              <a key={p.id} className={`ww-cell ww-cell-${p.id}`} href={p.link} target="_blank" rel="noopener noreferrer">
+                <img src={p.src} alt={p.title} />
+                <div className="ww-cell-shade" />
+                <span className="ww-cell-title">{p.title}</span>
+              </a>
+            ) : (
+              <button key={p.id} className={`ww-cell ww-cell-${p.id}`} onClick={() => openPhoto(p)}>
+                <img src={p.src} alt={p.title} />
+                <div className="ww-cell-shade" />
+                <span className="ww-cell-title">{p.title}</span>
+              </button>
+            )
+          )}
         </div>
       </div>
 
