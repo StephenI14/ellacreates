@@ -21,6 +21,7 @@ const photographyPhotos = [
   { id: 11, title: 'Lost Dutchman', src: '/photos/lost_dutchman.jpeg', description: '' },
   { id: 12, title: 'Oregon Coast', src: '/photos/ocean.jpeg', description: '' },
   { id: 13, title: 'Salt River', src: '/photos/salt.jpeg', description: '' },
+  { id: 14, title: 'Mirror', src: '/photos/mirror.jpeg', description: '' },
 ]
 
 // ── Top-level project cards ──
