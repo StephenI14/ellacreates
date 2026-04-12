@@ -12,6 +12,7 @@ const photos = [
   { id: 7,  src: '/photos/supplies.jpg',  title: 'Bag Charm Workshop Event Flier' },
   { id: 8,  src: '/photos/queens.jpg',    title: 'Geocaching New York Trip Post' },
   { id: 9,  src: '/photos/flow.jpg',      title: 'Letter to My Future Self Event Flier' },
+  { id: 16, src: '/photos/lfmfs.jpeg',   title: 'Letter to My Future Self Event Flier (2)' },
   { id: 10, src: '/photos/ra.jpg',        title: 'Mini Bouquets Event Flier' },
   { id: 11, title: 'Ducktown Reel', link: 'https://www.instagram.com/p/DBMoaVky32W/' },
   { id: 12, title: 'Tawny Reynolds Post', link: 'https://www.instagram.com/p/DNsvlwJZgZc/?img_index=1' },
