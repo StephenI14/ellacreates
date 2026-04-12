@@ -17,6 +17,7 @@ const photos = [
   { id: 12, title: 'Tawny Reynolds Post', link: 'https://www.instagram.com/p/DNsvlwJZgZc/?img_index=1' },
   { id: 13, title: 'Jorge Artist Post', link: 'https://www.instagram.com/p/DLqGv3FvMfi/?img_index=1' },
   { id: 14, title: 'Annaliese Artist Post', link: 'https://www.instagram.com/p/DJeQFtYRQRm/' },
+  { id: 15, title: 'Art of Recovery Event Posting', link: 'https://www.instagram.com/p/DIJrp8azQPo/' },
 ]
 
 export default function CampaignsGallery({ onBack }) {
