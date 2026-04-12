@@ -18,6 +18,7 @@ const photographyPhotos = [
   { id: 8, title: 'SatARTdays',                src: '/photos/photosat.jpeg',        description: '' },
   { id: 9, title: 'SatARTday Event Photography', src: '/photos/photosats.jpeg',    description: '' },
   { id: 10, title: 'SatARTdays Post', link: 'https://www.instagram.com/p/DOJWEbKk0gl/' },
+  { id: 11, title: 'Lost Dutchman', src: '/photos/lost_dutchman.jpeg', description: '' },
 ]
 
 // ── Top-level project cards ──
