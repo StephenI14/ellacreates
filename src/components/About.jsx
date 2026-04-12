@@ -6,7 +6,7 @@ export default function About() {
       {/* Hero split */}
       <div className="about-hero">
         <div className="about-hero-img">
-          <img src="/photos/selfportrait.jpg" alt="Ella Johnson" />
+          <img src="/photos/baby.jpg" alt="Ella Johnson" />
         </div>
         <div className="about-hero-text">
           <span className="about-label">About</span>
