@@ -13,6 +13,7 @@ const photos = [
   { id: 8,  src: '/photos/queens.jpg',    title: 'Geocaching New York Trip Post' },
   { id: 9,  src: '/photos/flow.jpg',      title: 'Letter to My Future Self Event Flier' },
   { id: 10, src: '/photos/ra.jpg',        title: 'Mini Bouquets Event Flier' },
+  { id: 11, title: 'Ducktown Reel', link: 'https://www.instagram.com/p/DBMoaVky32W/' },
 ]
 
 export default function CampaignsGallery({ onBack }) {
@@ -39,13 +40,20 @@ export default function CampaignsGallery({ onBack }) {
 
       <div className="cg-scroll">
         <div className="cg-grid">
-          {photos.map((p) => (
-            <button key={p.id} className={`cg-cell cg-cell-${p.id}`} onClick={() => openPhoto(p)}>
-              <img src={p.src} alt={p.title} />
-              <div className="cg-cell-shade" />
-              <span className="cg-cell-title">{p.title}</span>
-            </button>
-          ))}
+          {photos.map((p) =>
+            p.link ? (
+              <a key={p.id} className="cg-cell cg-video-cell" href={p.link} target="_blank" rel="noopener noreferrer">
+                <div className="cg-video-play">▶</div>
+                <span className="cg-cell-title cg-cell-title-visible">{p.title}</span>
+              </a>
+            ) : (
+              <button key={p.id} className={`cg-cell cg-cell-${p.id}`} onClick={() => openPhoto(p)}>
+                <img src={p.src} alt={p.title} />
+                <div className="cg-cell-shade" />
+                <span className="cg-cell-title">{p.title}</span>
+              </button>
+            )
+          )}
         </div>
       </div>
 
