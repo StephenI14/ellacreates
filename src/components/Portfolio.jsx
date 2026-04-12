@@ -17,6 +17,7 @@ const photographyPhotos = [
   { id: 7, title: 'Self Portrait',             src: '/photos/selfportrait.jpg',     description: 'A reflection.' },
   { id: 8, title: 'SatARTdays',                src: '/photos/photosat.jpeg',        description: '' },
   { id: 9, title: 'SatARTday Event Photography', src: '/photos/photosats.jpeg',    description: '' },
+  { id: 10, title: 'SatARTdays Post', link: 'https://www.instagram.com/p/DOJWEbKk0gl/' },
 ]
 
 // ── Top-level project cards ──
@@ -68,13 +69,20 @@ function PhotoGallery({ onBack }) {
 
       <div className="pg-scroll">
         <div className="pg-grid">
-          {photographyPhotos.map((p) => (
-            <button key={p.id} className="pg-cell" onClick={() => openPhoto(p)}>
-              <img src={p.src} alt={p.title} />
-              <div className="pg-cell-shade" />
-              <span className="pg-cell-title">{p.title}</span>
-            </button>
-          ))}
+          {photographyPhotos.map((p) =>
+            p.link ? (
+              <a key={p.id} className="pg-cell pg-video-cell" href={p.link} target="_blank" rel="noopener noreferrer">
+                <div className="pg-video-play">▶</div>
+                <span className="pg-cell-title pg-cell-title-visible">{p.title}</span>
+              </a>
+            ) : (
+              <button key={p.id} className="pg-cell" onClick={() => openPhoto(p)}>
+                <img src={p.src} alt={p.title} />
+                <div className="pg-cell-shade" />
+                <span className="pg-cell-title">{p.title}</span>
+              </button>
+            )
+          )}
         </div>
       </div>
 
