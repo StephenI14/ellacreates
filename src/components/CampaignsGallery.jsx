@@ -17,8 +17,8 @@ const photos = [
   { id: 16, src: '/photos/lfmfs.jpeg',   title: 'Letter to My Future Self Event Flier (2)' },
   { id: 10, src: '/photos/ra.jpg',        title: 'Mini Bouquets Event Flier' },
   { id: 11, title: 'Ducktown Reel', link: 'https://www.instagram.com/p/DBMoaVky32W/' },
-  { id: 12, title: 'Tawny Reynolds Post', link: 'https://www.instagram.com/p/DNsvlwJZgZc/?img_index=1' },
-  { id: 13, title: 'Jorge Artist Post', link: 'https://www.instagram.com/p/DLqGv3FvMfi/?img_index=1' },
+  { id: 12, title: 'Tawny Reynolds Post', src: '/photos/tawny_insta.png', link: 'https://www.instagram.com/p/DNsvlwJZgZc/?img_index=1' },
+  { id: 13, title: 'Jorge Artist Post', src: '/photos/jorge.png', link: 'https://www.instagram.com/p/DLqGv3FvMfi/?img_index=1' },
   { id: 14, title: 'Annaliese Artist Post', link: 'https://www.instagram.com/p/DJeQFtYRQRm/' },
   { id: 15, title: 'Art of Recovery Event Posting', link: 'https://www.instagram.com/p/DIJrp8azQPo/' },
   { id: 17, src: '/photos/geopost.jpeg', title: 'Cape May Post' },
@@ -49,10 +49,16 @@ export default function CampaignsGallery({ onBack }) {
       <div className="cg-scroll">
         <div className="cg-grid">
           {photos.map((p) =>
-            p.link ? (
+            p.link && !p.src ? (
               <a key={p.id} className="cg-cell cg-video-cell" href={p.link} target="_blank" rel="noopener noreferrer">
                 <div className="cg-video-play">▶</div>
                 <span className="cg-cell-title cg-cell-title-visible">{p.title}</span>
+              </a>
+            ) : p.link && p.src ? (
+              <a key={p.id} className={`cg-cell cg-cell-${p.id}`} href={p.link} target="_blank" rel="noopener noreferrer">
+                <img src={p.src} alt={p.title} />
+                <div className="cg-cell-shade" />
+                <span className="cg-cell-title">{p.title}</span>
               </a>
             ) : (
               <button key={p.id} className={`cg-cell cg-cell-${p.id}`} onClick={() => openPhoto(p)}>
