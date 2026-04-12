@@ -8,13 +8,10 @@ const photos = [
   { id: 3,  src: '/photos/geo.jpg',       title: 'Geocaching Allaire Instagram Post' },
   { id: 4,  src: '/photos/marketing.jpg', title: 'Noyes Promotional Advertisement Post' },
   { id: 5,  src: '/photos/upcycle.jpg',   title: 'Upcycle & Unwind Event Flier' },
-  { id: 6,  src: '/photos/fright.jpg',    title: 'Fright Fest Marketing Materials' },
-  { id: 18, src: '/photos/fri.jpg',      title: 'Fright Fest Marketing Materials (2)' },
-  { id: 19, src: '/photos/fri2.png',    title: 'Fright Fest Marketing Materials (3)' },
+  { id: 6,  src: '/photos/fright.jpg',    title: 'Fright Fest Marketing Materials', slides: ['/photos/fright.jpg', '/photos/fri.jpg', '/photos/fri2.png'] },
   { id: 7,  src: '/photos/supplies.jpg',  title: 'Bag Charm Workshop Event Flier' },
   { id: 8,  src: '/photos/queens.jpg',    title: 'Geocaching New York Trip Post' },
-  { id: 9,  src: '/photos/flow.jpg',      title: 'Letter to My Future Self Event Flier' },
-  { id: 16, src: '/photos/lfmfs.jpeg',   title: 'Letter to My Future Self Event Flier (2)' },
+  { id: 9,  src: '/photos/flow.jpg',      title: 'Letter to My Future Self Event Flier', slides: ['/photos/flow.jpg', '/photos/lfmfs.jpeg'] },
   { id: 10, src: '/photos/ra.jpg',        title: 'Mini Bouquets Event Flier' },
   { id: 11, title: 'Ducktown Reel', link: 'https://www.instagram.com/p/DBMoaVky32W/' },
   { id: 12, title: 'Tawny Reynolds Post', src: '/photos/tawny_insta.png', link: 'https://www.instagram.com/p/DNsvlwJZgZc/?img_index=1' },
@@ -27,9 +24,11 @@ const photos = [
 export default function CampaignsGallery({ onBack }) {
   const [selected, setSelected] = useState(null)
   const [phase, setPhase] = useState(null)
+  const [slideIndex, setSlideIndex] = useState(0)
 
   const openPhoto = (photo) => {
     setSelected(photo)
+    setSlideIndex(0)
     setPhase('opening')
     setTimeout(() => setPhase('open'), 400)
   }
@@ -78,7 +77,30 @@ export default function CampaignsGallery({ onBack }) {
             onClick={(e) => e.stopPropagation()}
           >
             <button className="cg-single-back" onClick={closePhoto}>← back</button>
-            <ZoomableImage className="cg-single-img" src={selected.src} alt={selected.title} />
+            {selected.slides ? (
+              <>
+                <ZoomableImage className="cg-single-img" src={selected.slides[slideIndex]} alt={`${selected.title} ${slideIndex + 1}`} />
+                <div className="cg-slide-controls">
+                  <button
+                    className="cg-slide-btn"
+                    onClick={() => setSlideIndex((i) => Math.max(0, i - 1))}
+                    disabled={slideIndex === 0}
+                  >
+                    ←
+                  </button>
+                  <span className="cg-slide-count">{slideIndex + 1} / {selected.slides.length}</span>
+                  <button
+                    className="cg-slide-btn"
+                    onClick={() => setSlideIndex((i) => Math.min(selected.slides.length - 1, i + 1))}
+                    disabled={slideIndex === selected.slides.length - 1}
+                  >
+                    →
+                  </button>
+                </div>
+              </>
+            ) : (
+              <ZoomableImage className="cg-single-img" src={selected.src} alt={selected.title} />
+            )}
             <div className="cg-single-title">{selected.title}</div>
           </div>
         </div>
