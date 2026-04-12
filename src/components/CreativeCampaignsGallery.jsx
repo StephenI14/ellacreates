@@ -20,6 +20,7 @@ const photos = [
   { id: 15, src: '/photos/blueberries.jpg',      title: 'Groovy Watercolor Blueberries' },
   { id: 16, src: '/photos/bug.jpg',              title: 'ASCII Bee' },
   { id: 17, src: '/photos/weave.png',            title: 'Balance Collage Weave' },
+  { id: 18, src: '/photos/noyesin.jpeg',        title: 'Noyes Instructional' },
 ]
 
 export default function CreativeCampaignsGallery({ onBack }) {
